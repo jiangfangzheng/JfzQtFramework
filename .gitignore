@@ -37,3 +37,20 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user*
 
+# ×Ô¶¨Òå
+Desktop_Qt_5_6_1_MinGW/
+Desktop_Qt_5_6_1_MinGW_Static/
+Desktop_Qt_5_6_2_MSVC2013_64bit/
+debug/
+release/
+*.csv
+*.xls
+*.obj
+*.gch
+*.pch
+*.mod
+*.smod
+*.exe
+*.out
+*.app
+
