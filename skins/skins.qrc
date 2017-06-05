@@ -24,5 +24,6 @@
         <file>qss/gray.css</file>
         <file>qss/lightgray.css</file>
         <file>qss/silvery.css</file>
+        <file>jfz.ico</file>
     </qresource>
 </RCC>

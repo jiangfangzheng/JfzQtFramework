@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QMap>
+#include "systemTray.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,13 @@ private:
 	// Skins
 	QMap<QString, QString> mapStyle;
 	void initSkins();
+
+// 托盘相关
+private:
+	SystemTray * myTray; //自定义系统托盘
+private slots:
+	void ShowWindow(); //处理还原操作
+	void SystemTrayActivated(QSystemTrayIcon::ActivationReason reason); //处理点击托盘操作
 };
 
 #endif // MAINWINDOW_H

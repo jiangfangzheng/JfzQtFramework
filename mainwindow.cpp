@@ -9,6 +9,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 	// Skin
 	this->initSkins();
+	// 托盘
+	myTray = new SystemTray(this);
+	connect(myTray,SIGNAL(showWidget()),this,SLOT(ShowWindow()));//关联信号和槽函数
+	connect(myTray, SIGNAL(activated(QSystemTrayIcon::ActivationReason)), this, SLOT(SystemTrayActivated(QSystemTrayIcon::ActivationReason)));
 }
 
 MainWindow::~MainWindow()
@@ -35,4 +39,30 @@ void MainWindow::initSkins()
 	// 直接赋值
 	QString qssFile = mapStyle["蓝色"];
 	Skins::setStyle(qssFile);
+}
+
+// 托盘相关
+void MainWindow::ShowWindow()
+{
+	this->showNormal();
+	this->raise();
+	this->activateWindow();
+}
+void MainWindow::SystemTrayActivated(QSystemTrayIcon::ActivationReason reason)
+{
+	switch(reason)
+	{
+	case QSystemTrayIcon::Trigger:
+	{
+		ShowWindow();
+		break;
+	}
+	case QSystemTrayIcon::DoubleClick:
+	{
+		ShowWindow();
+		break;
+	}
+	default:
+		break;
+	}
 }
